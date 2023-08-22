@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+message User {
+    string _id = 1;
+    string userID = 2;
+    string user_email = 3;
+    string username = 4;
+  }
+
+message CreateUserResponse {
+    User user = 1;
+}
+
+message CreateUserRequest {
+   int32 user_id = 1;
+   string user_email = 2;
+   int32 username = 3;
+}
+
+message GetSingleUserRequest {
+  int32 user_id = 1;
+}
+
+message GetSingleUserResponse {
+   User user = 1;
+}
+
+
+message GetAllUsersRequest {
+   int32 user_id = 1;
+}
+
+message GetAllUsersResponse {
+   repeated User users = 1;
+}
+
+message InputEmpty {}
+
+service UserService {
+    rpc CreateAdmin(CreateUserRequest) returns (CreateUserResponse);
+    rpc GetSingleUser(GetSingleUserRequest) returns (GetSingleUserResponse);
+    rpc GetAllUsers(InputEmpty) returns (GetAllUsersResponse);
+
+}
