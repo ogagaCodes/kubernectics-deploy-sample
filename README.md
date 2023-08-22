@@ -1,0 +1,1 @@
+# kubernectics-deploy-sample
